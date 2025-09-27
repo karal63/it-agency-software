@@ -1,0 +1,4 @@
+Emma Carter;Developer;EmmaCarter@gmail.com
+Frank Miller;UI/UX Designer;FrankMiller@gmail.com;Contract
+Grace Lee;Project Manager;GraceLee@gmail.com
+Henry Adams;QA Engineer;HenryAdams@gmail.com

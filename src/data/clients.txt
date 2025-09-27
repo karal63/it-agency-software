@@ -1,0 +1,3 @@
+Acme Corp;acme.contact@example.com;+1-555-1010
+TechNova;support@technova.com;+1-555-2020
+BrightFuture Inc;info@brightfuture.com;+1-555-3030

@@ -1,4 +1,8 @@
 public class Client {
+    public String clientName;
+    public String clientEmail;
+    public String clientPhone;
+
     public Client() {
         System.out.println("Client created.");
     }

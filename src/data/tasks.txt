@@ -1,0 +1,4 @@
+Create wireframes;example_desc;To Do;2025-02-10
+Develop backend API;example_desc;In Progress;2025-03-01
+Set up CI/CD pipeline;example_desc;Planned;2025-04-15
+Prepare research report;example_desc;On Hold;2025-06-20
