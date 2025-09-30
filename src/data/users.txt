@@ -1,0 +1,4 @@
+alice.johnson@example.com;password123
+bob.smith@example.com;bobPass
+charlie.brown@example.com;charliePwd
+diana.lee@example.com;dianaPwd
