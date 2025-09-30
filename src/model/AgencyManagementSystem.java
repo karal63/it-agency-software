@@ -1,3 +1,5 @@
+package model;
+
 public class AgencyManagementSystem {
     public AgencyManagementSystem() {
         System.out.println("Agency Management System Initialized.");

@@ -1,3 +1,4 @@
+package model;
 public class Project {
     public String projectName;
     public String projectDescription;
