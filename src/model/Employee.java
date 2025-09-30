@@ -1,9 +1,7 @@
-public class Employee {
-    public String employeeName;
-    public String employeeRole;
-    public String employeeEmail;
-
-    public Employee() {
+package model;
+public class Employee extends User {
+    public Employee(String username, String password) {
+        super(username, password);
         System.out.println("Employee created.");
     }
 
