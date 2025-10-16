@@ -1,3 +1,4 @@
+// ...existing code...
 package UI;
 import java.util.Scanner;
 
@@ -35,17 +36,40 @@ public class AppMenu {
     }
     
     public void login(Scanner scanner) {
-            System.out.println();
-        
-            System.out.println("===== LOGIN =====");
-            System.out.print("Enter email: ");
-            String email = scanner.nextLine();
-            System.out.print("Enter password: ");
-            String password = scanner.nextLine();
-
-            User user = new User(email, password);
-            user.login();
+        System.out.println();
+        System.out.println("===== LOGIN =====");
+        System.out.print("Enter email: ");
+        String email = scanner.nextLine();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+        User user = new User(email, password);
+        boolean success = user.login();
+        if (success) {
+            showProjects(email);
         }
+    }
+
+    public void showProjects(String email) {
+        System.out.println("==================================");
+        System.out.println("   Welcome " + email + "   ");
+        System.out.println("==================================");
+        System.out.println("Please select an option:");
+        System.out.println("1. Show projects");
+        System.out.print("Your choice: ");
+
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.println("➡️  Redirecting to Projects...");
+                break;
+
+            default:
+                System.out.println("❌ Invalid option. Please try again.");
+                break;
+        }
+
+    }
 
 
 }
