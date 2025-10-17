@@ -16,11 +16,10 @@ public class Employee extends User {
         System.out.println("Please select an option:");
         
         System.out.println("1. Show projects");
-        System.out.println("2. Create project");
-        System.out.println("3. Create task");
-        System.out.println("4. Close task");
-        System.out.println("5. Show employees");
-        System.out.println("6. Show personal info");
+        System.out.println("2. Create task");
+        System.out.println("3. Close task");
+        System.out.println("4. Show employees");
+        System.out.println("5. Show personal info");
         System.out.print("Your choice: ");
 
         int choice = scanner.nextInt();
@@ -37,16 +36,16 @@ public class Employee extends User {
                 System.out.println("==================================");
                 super.getProjects(scanner);
                 break;
-            case 6:
+            case 5:
                 System.out.println("➡️  Redirecting to Account...");
 
                 System.out.println();
                     
                 System.out.println("==================================");
-                System.out.println("   " + 123 + "   ");
+                System.out.println("   Profile Information   ");
                 System.out.println("==================================");
-                super.getProjects(scanner);
-
+                super.getProfileInfo();
+                break;
             default:
                 System.out.println("❌ Invalid option. Please try again.");
                 break;
@@ -58,7 +57,5 @@ public class Employee extends User {
         System.out.println("Updating employee role to: " + newRole);
     }
 
-    public void getEmployeeInfo() {
-        System.out.println("Employee Info:");
-    }
+    
 }

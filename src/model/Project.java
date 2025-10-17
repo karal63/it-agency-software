@@ -1,14 +1,13 @@
 package model;
 public class Project {
-    public String projectName;
-    public String projectDescription;
-    public String projectStatus;
+    public String name;
+    public String description;
+    public String status;
 
-    // shoud be an array but for simplicity, we use a single Employee reference
-    public Employee assignedEmployee;
-
-    public Project() {
-        System.out.println("Project created.");
+    public Project(String name, String description) {
+        this.name = name;
+        this.description = description;
+        this.status = "In Progress";
     }
 
     public void updateStatus(String newStatus) {

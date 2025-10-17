@@ -123,7 +123,9 @@ public abstract class User {
 
     public abstract void showDashboard(Scanner scanner);
 
-    public boolean getUserInfo() {
-        return true; // Simplified for now
+    public void getProfileInfo() {
+        System.out.println("Email: " + this.username);
+        System.out.println("Role: " + role);
+
     }
 }
