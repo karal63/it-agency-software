@@ -48,11 +48,11 @@ public class AppMenu {
         User user = new User(email, password, "employee");
         boolean success = user.login();
         if (success) {
-            showProjects(email, user);
+            showProjects(email, user, scanner);
         }
     }
 
-    public void showProjects(String email, User user) {
+    public void showProjects(String email, User user, Scanner scanner) {
         System.out.println("==================================");
         System.out.println("   Welcome " + email + "   ");
         System.out.println("==================================");
@@ -72,7 +72,7 @@ public class AppMenu {
                 System.out.println("==================================");
                 System.out.println("   All projects   ");
                 System.out.println("==================================");
-                user.getProjects();
+                user.getProjects(scanner);
                 break;
 
             default:

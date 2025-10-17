@@ -1,6 +1,11 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AgencyManagementSystem {
+    List<Project> projects = new ArrayList<>();
+
     public AgencyManagementSystem() {
         System.out.println("Agency Management System Initialized.");
     }

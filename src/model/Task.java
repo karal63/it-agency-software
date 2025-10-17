@@ -15,15 +15,9 @@ public class Task {
         System.out.println("Updating task status to: " + newStatus);
     }
 
-    public void assignEmployee(Employee employee) {
-        System.out.println("Assigning employee to task.");
-    }
-
     public void setDeadline(LocalDate deadline) {
         System.out.println("Setting task deadline to: " + deadline);
     }
 
-    public void getTaskDetails() {
-        System.out.println("Task Details:");
-    }
+    
 }
