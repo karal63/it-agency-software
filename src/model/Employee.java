@@ -1,7 +1,7 @@
 package model;
 public class Employee extends User {
     public Employee(String username, String password) {
-        super(username, password);
+        super(username, password, "employee");
         System.out.println("Employee created.");
     }
 
