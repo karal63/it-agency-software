@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class User {
+public abstract class User {
     private String username;
     private String password;
     public String role = "";
@@ -120,6 +120,8 @@ public class User {
             System.err.println("Error reading tasks file: " + e.getMessage());
         }
     }
+
+    public abstract void showDashboard(Scanner scanner);
 
     public boolean getUserInfo() {
         return true; // Simplified for now
