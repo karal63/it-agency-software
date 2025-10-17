@@ -18,6 +18,4 @@ public class Task {
     public void setDeadline(LocalDate deadline) {
         System.out.println("Setting task deadline to: " + deadline);
     }
-
-    
 }

@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class User {
     private String username;
     private String password;
-    protected String role = "";
+    public String role = "";
 
     private String dbEmployees = "src/data/employees.txt";
     private String dbClients = "src/data/clients.txt";
