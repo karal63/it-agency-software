@@ -1,8 +1,14 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Employee extends User {
+    private String dbEmployees = "src/data/employees.txt";
+
     public Employee(String username, String password) {
         super(username, password, "employee");
         System.out.println("Employee created.");
@@ -36,6 +42,9 @@ public class Employee extends User {
                 System.out.println("==================================");
                 super.getProjects(scanner);
                 break;
+            case 4:
+                getEmployees();
+                break;
             case 5:
                 System.out.println("➡️  Redirecting to Account...");
 
@@ -52,9 +61,27 @@ public class Employee extends User {
         }
     }
 
-
     public void updateRole(String newRole) {
         System.out.println("Updating employee role to: " + newRole);
+    }
+
+    public void getEmployees() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(dbEmployees))) {
+            String line;
+            int index = 0;
+
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(";");
+
+                String email = parts[0];
+                String contact = parts[2];
+                System.out.println(index + email + "Contact: " + contact);
+
+                index++;
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading tasks file: " + e.getMessage());
+        }
     }
 
     

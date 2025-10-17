@@ -21,8 +21,7 @@ public class Client extends User {
         System.out.println("Please select an option:");
 
         System.out.println("1. Create project");
-        System.out.println("2. Show employees");
-        System.out.println("3. Show profile info");
+        System.out.println("2. Show profile info");
         System.out.print("Your choice: ");
 
         int choice = scanner.nextInt();
@@ -41,7 +40,6 @@ public class Client extends User {
                 addProject(project);
                 break;
             case 2:
-            case 3:
                 System.out.println("➡️  Redirecting to Account...");
 
                 System.out.println();
