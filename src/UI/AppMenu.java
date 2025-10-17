@@ -1,6 +1,9 @@
 // ...existing code...
 package UI;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 import model.User;
 
@@ -42,14 +45,14 @@ public class AppMenu {
         String email = scanner.nextLine();
         System.out.print("Enter password: ");
         String password = scanner.nextLine();
-        User user = new User(email, password);
+        User user = new User(email, password, "employee");
         boolean success = user.login();
         if (success) {
-            showProjects(email);
+            showProjects(email, user);
         }
     }
 
-    public void showProjects(String email) {
+    public void showProjects(String email, User user) {
         System.out.println("==================================");
         System.out.println("   Welcome " + email + "   ");
         System.out.println("==================================");
@@ -58,10 +61,18 @@ public class AppMenu {
         System.out.print("Your choice: ");
 
         int choice = scanner.nextInt();
+        scanner.nextLine(); // consume newline
 
         switch (choice) {
             case 1:
                 System.out.println("➡️  Redirecting to Projects...");
+
+                System.out.println();
+                
+                System.out.println("==================================");
+                System.out.println("   All projects   ");
+                System.out.println("==================================");
+                user.getProjects();
                 break;
 
             default:
@@ -70,6 +81,5 @@ public class AppMenu {
         }
 
     }
-
 
 }

@@ -1,4 +1,4 @@
-Emma Carter;Developer;EmmaCarter@gmail.com
-Frank Miller;UI/UX Designer;FrankMiller@gmail.com;Contract
-Grace Lee;Project Manager;GraceLee@gmail.com
-Henry Adams;QA Engineer;HenryAdams@gmail.com
+alice.johnson@example.com;password123;+1-555-1010
+bob.smith@example.com;bobPass;+1-555-1010
+charlie.brown@example.com;charliePwd;+1-555-1010
+diana.lee@example.com;dianaPwd;+1-555-1010

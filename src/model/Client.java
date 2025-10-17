@@ -3,7 +3,7 @@ public class Client extends User {
     public String clientPhone;
 
     public Client(String username, String password) {
-        super(username, password);
+        super(username, password, "client");
         System.out.println("Client created.");
     }
     

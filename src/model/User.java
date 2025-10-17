@@ -7,16 +7,21 @@ import java.io.IOException;
 public class User {
     private String username;
     private String password;
-    private String dbFilePath = "src/data/users.txt";
+    protected String role = "";
+    private String dbEmployees = "src/data/employees.txt";
+    private String dbClients = "src/data/clients.txt";
+    private String dbProjects = "src/data/projects.txt";
 
-    public User(String username, String password) {
+
+
+    public User(String username, String password, String role) {
         this.username = username;
         this.password = password;
+        this.role = role;
     }
     
     public boolean login() {
-        
-        try (BufferedReader reader = new BufferedReader(new FileReader(dbFilePath))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(role == "employee" ? dbEmployees : dbClients))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(";");
@@ -36,6 +41,19 @@ public class User {
 
         System.out.println("❌ Invalid username or password");
         return false;
+    }
+
+    public void getProjects() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(dbProjects))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(";");
+                System.out.println(parts[0]);
+            }
+
+        } catch (IOException e) {
+            System.err.println("Error reading DB file: " + e.getMessage());
+        }
     }
 
     public boolean getUserInfo() {
