@@ -108,7 +108,7 @@ public class AgencyManagementSystem {
         }
     }
 
-    public void getProjects(Scanner scanner) {
+    public boolean getProjects(Scanner scanner) {
         List<String> projects = new ArrayList<>();
 
         System.out.println("➡️  Redirecting to Projects...");
@@ -136,7 +136,7 @@ public class AgencyManagementSystem {
 
             if (projects.isEmpty()) {
                 System.out.println("No projects found.");
-                return;
+                return false;
             }
 
             System.out.print("\nChoose project number to view tasks or press Enter to escape: ");
@@ -144,7 +144,7 @@ public class AgencyManagementSystem {
 
             if (input.isEmpty()) {
                 System.out.println("↩️  Returning...");
-                return;
+                return false;
             }
 
             int choice;
@@ -152,24 +152,25 @@ public class AgencyManagementSystem {
                 choice = Integer.parseInt(input);
             } catch (NumberFormatException e) {
                 System.out.println("❌ Invalid input. Must be a number.");
-                return;
+                return false;
             }
             
 
             if (choice > 0 && choice <= projects.size()) {
                 String selectedProject = projects.get(choice - 1);
                 System.out.println("\n🧾 Tasks for project: " + selectedProject);
-                getTasks(selectedProject);
+                return getTasks(selectedProject);
             } else {
                 System.out.println("❌ Invalid selection.");
+                return false;
             }
-
         } catch (IOException e) {
             System.err.println("Error reading DB file: " + e.getMessage());
+            return false;
         }
     }
 
-    public void getTasks(String projectName) {
+    public boolean getTasks(String projectName) {
         try (BufferedReader reader = new BufferedReader(new FileReader(dbTasks))) {
             String line;
             boolean found = false;
@@ -194,12 +195,16 @@ public class AgencyManagementSystem {
                 }
             }
 
+            
             if (!found) {
                 System.out.println("No tasks found for project: " + projectName);
+                return false;
             }
 
+            return true;
         } catch (IOException e) {
             System.err.println("Error reading tasks file: " + e.getMessage());
+            return false;
         }
     }
 
