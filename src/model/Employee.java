@@ -36,7 +36,7 @@ public class Employee extends User {
         switch (choice) {
             case 1:
                 agencySystem.getProjects(scanner);
-                goBack(scanner);
+                showDashboard(scanner);
                 break;
             case 2:
                 System.out.print("~ Name: ");

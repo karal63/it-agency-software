@@ -139,9 +139,22 @@ public class AgencyManagementSystem {
                 return;
             }
 
-            System.out.print("\nChoose project number to view tasks: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            System.out.print("\nChoose project number to view tasks or press Enter to escape: ");
+            String input = scanner.nextLine().trim();
+
+            if (input.isEmpty()) {
+                System.out.println("↩️  Returning...");
+                return;
+            }
+
+            int choice;
+            try {
+                choice = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("❌ Invalid input. Must be a number.");
+                return;
+            }
+            
 
             if (choice > 0 && choice <= projects.size()) {
                 String selectedProject = projects.get(choice - 1);

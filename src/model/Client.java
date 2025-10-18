@@ -47,7 +47,7 @@ public class Client extends User {
                 break;
             case 3:
                 agencySystem.getProjects(scanner);
-                goBack(scanner);
+                showDashboard(scanner);
                 break;
             case 4:
                 getProfileInfo();
