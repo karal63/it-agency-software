@@ -44,6 +44,7 @@ public class Employee extends User {
                 break;
             case 4:
                 getEmployees();
+                goBack(scanner);
                 break;
             case 5:
                 System.out.println("➡️  Redirecting to Account...");
@@ -68,20 +69,27 @@ public class Employee extends User {
     public void getEmployees() {
         try (BufferedReader reader = new BufferedReader(new FileReader(dbEmployees))) {
             String line;
-            int index = 0;
+            int index = 1;
 
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(";");
 
                 String email = parts[0];
                 String contact = parts[2];
-                System.out.println(index + email + "Contact: " + contact);
+                System.out.println(index + ". " + email + "Contact: " + contact);
 
                 index++;
             }
         } catch (IOException e) {
             System.err.println("Error reading tasks file: " + e.getMessage());
         }
+    }
+
+    public void goBack(Scanner scanner) {
+        System.out.println();
+        System.out.println("Press Enter to go back to dashboard");
+        String choice = scanner.nextLine();
+        showDashboard(scanner);
     }
 
     
