@@ -1,10 +1,10 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class AgencyManagementSystem {
-    List<Project> projects = new ArrayList<>();
+    private String dbProjects = "src/data/projects.txt";
 
     public AgencyManagementSystem() {
         System.out.println("Agency Management System Initialized.");
@@ -14,20 +14,20 @@ public class AgencyManagementSystem {
         System.out.println("Adding client: ");
     }
 
-    public void createProject(Client client, Project project) {
-        System.out.println("Creating project for client: ");
+    public void addProject(Project project) {
+        try (FileWriter writer = new FileWriter(dbProjects, true)) {
+            String line = project.name + ";" 
+                        + project.description + ";" 
+                        + project.status + "\n";
+
+            writer.write(line);
+            System.out.println("✅ Project added.");
+        } catch (IOException e) {
+            System.err.println("❌ Error writing to file: " + e.getMessage());
+        }
     }
 
     public void addEmployee(Employee employee) {
         System.out.println("Adding employee: ");
-    }
-
-    public void findProjectById(int projectId) {
-        System.out.println("Finding project with ID: " + projectId);
-    }
-
-    public void generateReports() {
-        // should show active projects and employees attached to certain projects
-        System.out.println("Generating reports...");
     }
 }

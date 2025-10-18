@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Client extends User {
     public String clientPhone;
-    private String dbProjects = "src/data/projects.txt";
+    private AgencyManagementSystem agencySystem = new AgencyManagementSystem();
 
     public Client(String username, String password) {
         super(username, password, "client");
@@ -37,7 +37,7 @@ public class Client extends User {
 
                 Project project = new Project(name, description);
 
-                addProject(project);
+                agencySystem.addProject(project);
                 break;
             case 2:
                 System.out.println("➡️  Redirecting to Account...");
@@ -63,18 +63,4 @@ public class Client extends User {
     public void getClientSummary() {
         System.out.println("Client Summary:");
     }
-
-    public void addProject(Project project) {
-        try (FileWriter writer = new FileWriter(dbProjects, true)) {
-            String line = project.name + ";" 
-                        + project.description + ";" 
-                        + project.status + "\n";
-
-            writer.write(line);
-            System.out.println("✅ Project added.");
-        } catch (IOException e) {
-            System.err.println("❌ Error writing to file: " + e.getMessage());
-        }
-    }
-    
 }
