@@ -42,6 +42,30 @@ public class AgencyManagementSystem {
         }
     }
 
+    public void closeProject(String projectName) {
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(dbProjects));
+            List<String> updatedLines = new ArrayList<>();
+            for (String line : lines) {
+                String[] parts = line.split(";");
+                String name = parts[0];
+                String description = parts[1];
+
+                if (!(name.equalsIgnoreCase(projectName))) {
+                    updatedLines.add(line);
+                } else {
+                    String updatedLine = name + ";" + description + ";" + "Closed";
+                    updatedLines.add(updatedLine);
+                }
+            }
+            Files.write(Paths.get(dbProjects), updatedLines);
+            System.out.println("🗑️ Project closed.");
+        } catch (IOException e) {
+            System.err.println("❌ Error deleting task: " + e.getMessage());
+        }
+        
+    }
+
     public void addTask(Task task) {
         try (FileWriter writer = new FileWriter(dbTasks, true)) {
             String line = task.name + ";" 
