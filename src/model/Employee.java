@@ -7,7 +7,6 @@ public class Employee extends User {
 
     public Employee(String username, String password) {
         super(username, password, "employee");
-        System.out.println("Employee created.");
     }
 
     @Override
@@ -23,6 +22,12 @@ public class Employee extends User {
         System.out.println("4. Close project");
         System.out.println("5. Show employees");
         System.out.println("6. Show personal info");
+
+        System.out.println();
+        System.out.println("~ Access ~");
+        System.out.println("7. Add client");
+        System.out.println("8. Add employee");
+
         System.out.print("Your choice: ");
 
         int choice = scanner.nextInt();
@@ -73,6 +78,19 @@ public class Employee extends User {
                 break;
             case 6:
                 getProfileInfo();
+                goBack(scanner);
+                break;
+            case 7:
+                System.out.print("Email: ");
+                String newClientEmail = scanner.nextLine();
+                System.out.print("Password: ");
+                String newClientPassword = scanner.nextLine();
+                System.out.print("Contact: ");
+                String newClientContact = scanner.nextLine();
+
+                Client client = new Client(newClientEmail, newClientPassword);
+
+                agencySystem.addClient(client, newClientContact);
                 goBack(scanner);
                 break;
             default:

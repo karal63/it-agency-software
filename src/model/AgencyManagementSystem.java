@@ -15,14 +15,16 @@ public class AgencyManagementSystem {
     private String dbProjects = "src/data/projects.txt";
     private String dbTasks = "src/data/tasks.txt";
     private String dbEmployees = "src/data/employees.txt";
+    private String dbClients = "src/data/clients.txt";
 
-
-    public AgencyManagementSystem() {
-        System.out.println("Agency Management System Initialized.");
-    }
-
-    public void addClient(Client client) {
-        System.out.println("Adding client: ");
+    public void addClient(Client client, String contact) {
+        try (FileWriter writer = new FileWriter(dbClients, true)) {
+            String line = client.getEmail() + ";" + client.getPassword() + ";" + contact + "\n";
+            writer.write(line);
+            System.out.println("✅ Client added.");
+        } catch (IOException e) {
+            System.err.println("❌ Error writing to file: " + e.getMessage());
+        }
     }
 
     public void addEmployee(Employee employee) {
