@@ -1,7 +1,5 @@
 package model;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Client extends User {
@@ -58,9 +56,5 @@ public class Client extends User {
     public void updateContactInfo(String newPhone) {
         this.clientPhone = newPhone;
         System.out.println("new Phone: " + newPhone);
-    }
-
-    public void getClientSummary() {
-        System.out.println("Client Summary:");
     }
 }

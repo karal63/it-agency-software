@@ -1,17 +1,15 @@
 package model;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Employee extends User {
     private String dbEmployees = "src/data/employees.txt";
     private String dbTasks = "src/data/tasks.txt";
+    private AgencyManagementSystem agencySystem = new AgencyManagementSystem();
 
 
     public Employee(String username, String password) {
@@ -45,23 +43,23 @@ public class Employee extends User {
                 System.out.println("==================================");
                 System.out.println("   All projects   ");
                 System.out.println("==================================");
-                super.getProjects(scanner);
+                agencySystem.getProjects(scanner);
                 goBack(scanner);
                 break;
             case 2:
-                System.out.print("Name: ");
+                System.out.print("~ Name: ");
                 String name = scanner.nextLine();
 
-                System.out.print("Referenced project name: ");
+                System.out.print("~ Referenced project name: ");
                 String projectName = scanner.nextLine();
 
-                System.out.print("Description: ");
+                System.out.print("~ Description: ");
                 String description = scanner.nextLine();
 
-                System.out.print("Status: ");
+                System.out.print("~ Status: ");
                 String status = scanner.nextLine();
 
-                System.out.print("Deadline (yyyy-mm-dd): ");
+                System.out.print("~ Deadline (yyyy-mm-dd): ");
                 String deadline = scanner.nextLine();
 
                 Task task = new Task(name, projectName, description, status, deadline);
