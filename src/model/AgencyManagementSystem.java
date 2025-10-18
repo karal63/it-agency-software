@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +55,24 @@ public class AgencyManagementSystem {
             System.out.println("✅ Task added.");
         } catch (IOException e) {
             System.err.println("❌ Error writing to file: " + e.getMessage());
+        }
+    }
+
+    public void deleteTask(String taskName) {
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(dbTasks));
+            List<String> updatedLines = new ArrayList<>();
+            for (String line : lines) {
+                String[] parts = line.split(";");
+                String name = parts[0];
+                if (!(name.equalsIgnoreCase(taskName))) {
+                    updatedLines.add(line);
+                }
+            }
+            Files.write(Paths.get(dbTasks), updatedLines);
+            System.out.println("🗑️ Task deleted.");
+        } catch (IOException e) {
+            System.err.println("❌ Error deleting task: " + e.getMessage());
         }
     }
 
