@@ -1,4 +1,4 @@
 alice.johnson@example.com;password123;+1-555-1010
 bob.smith@example.com;bobPass;+1-555-1010
 charlie.brown@example.com;charliePwd;+1-555-1010
-diana.lee@example.com;dianaPwd;+1-555-1010
+diana.lee@example.com;123;+1-555-1010

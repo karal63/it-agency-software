@@ -1,3 +1,5 @@
 Website Redesign;example_desc;In Progress
 Mobile App Development;example_desc;Planned
 AI Research Prototype;example_desc;On Hold
+Implement algorithm;practicing;In Progress
+test;test;In Progress
