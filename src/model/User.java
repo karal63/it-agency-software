@@ -8,6 +8,7 @@ import java.util.Scanner;
 public abstract class User {
     private String username;
     private String password;
+    private String contact;
     public String role = "";
 
     private String dbEmployees = "src/data/employees.txt";
@@ -20,6 +21,18 @@ public abstract class User {
         this.role = role;
     }
 
+    public String getEmail() {
+        return this.username;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public String getContact() {
+        return this.contact;
+    }
+
     public boolean login() {
         try (BufferedReader reader = new BufferedReader(new FileReader(role.equals("employee") ? dbEmployees : dbClients))) {
             String line;
@@ -29,6 +42,9 @@ public abstract class User {
 
                 String email = parts[0];
                 String pass = parts[1];
+
+                // set phone number
+                this.contact = parts[2];
 
                 if (email.equalsIgnoreCase(this.username) && pass.equals(this.password)) {
                     System.out.println("✅ Login successful for " + email);
@@ -55,6 +71,7 @@ public abstract class User {
         System.out.println("==================================");
 
         System.out.println("Email: " + this.username);
+        System.out.println("Contact: " + this.contact);
         System.out.println("Role: " + role);
     }
 
