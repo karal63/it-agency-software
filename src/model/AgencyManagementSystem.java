@@ -12,6 +12,8 @@ import java.util.Scanner;
 public class AgencyManagementSystem {
     private String dbProjects = "src/data/projects.txt";
     private String dbTasks = "src/data/tasks.txt";
+    private String dbEmployees = "src/data/employees.txt";
+
 
     public AgencyManagementSystem() {
         System.out.println("Agency Management System Initialized.");
@@ -107,6 +109,25 @@ public class AgencyManagementSystem {
                 System.out.println("No tasks found for project: " + projectName);
             }
 
+        } catch (IOException e) {
+            System.err.println("Error reading tasks file: " + e.getMessage());
+        }
+    }
+
+    public void getEmployees() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(dbEmployees))) {
+            String line;
+            int index = 1;
+
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(";");
+
+                String email = parts[0];
+                String contact = parts[2];
+                System.out.println(index + ". " + email + " | " + "Contact: " + contact);
+
+                index++;
+            }
         } catch (IOException e) {
             System.err.println("Error reading tasks file: " + e.getMessage());
         }
