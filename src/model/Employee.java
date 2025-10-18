@@ -112,8 +112,4 @@ public class Employee extends User {
                 break;
         }
     }
-
-    public void updateRole(String newRole) {
-        System.out.println("Updating employee role to: " + newRole);
-    }
 }
