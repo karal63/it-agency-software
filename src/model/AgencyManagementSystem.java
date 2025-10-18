@@ -103,6 +103,14 @@ public class AgencyManagementSystem {
     public void getProjects(Scanner scanner) {
         List<String> projects = new ArrayList<>();
 
+        System.out.println("➡️  Redirecting to Projects...");
+
+        System.out.println();
+                    
+        System.out.println("==================================");
+        System.out.println("   All projects   ");
+        System.out.println("==================================");
+
         // Load projects from file
         try (BufferedReader reader = new BufferedReader(new FileReader(dbProjects))) {
             String line;
@@ -175,6 +183,14 @@ public class AgencyManagementSystem {
     }
 
     public void getEmployees() {
+        System.out.println("➡️  Redirecting to Employees list...");
+
+        System.out.println();
+                    
+        System.out.println("==================================");
+        System.out.println("   All employees   ");
+        System.out.println("==================================");
+                
         try (BufferedReader reader = new BufferedReader(new FileReader(dbEmployees))) {
             String line;
             int index = 1;

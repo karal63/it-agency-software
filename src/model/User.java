@@ -46,6 +46,14 @@ public abstract class User {
     public abstract void showDashboard(Scanner scanner);
 
     public void getProfileInfo() {
+        System.out.println("➡️  Redirecting to Account...");
+
+        System.out.println();
+                    
+        System.out.println("==================================");
+        System.out.println("   Profile Information   ");
+        System.out.println("==================================");
+
         System.out.println("Email: " + this.username);
         System.out.println("Role: " + role);
     }

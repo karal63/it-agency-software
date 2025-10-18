@@ -19,10 +19,13 @@ public class Client extends User {
         System.out.println("Please select an option:");
 
         System.out.println("1. Create project");
-        System.out.println("2. Show profile info");
+        System.out.println("2. Show employees");
+        System.out.println("3. Show projects & tasks");
+        System.out.println("4. Show profile info");
         System.out.print("Your choice: ");
 
         int choice = scanner.nextInt();
+        scanner.nextLine();
 
         switch (choice) {
             case 1:
@@ -38,15 +41,16 @@ public class Client extends User {
                 agencySystem.addProject(project);
                 goBack(scanner);
                 break;
-            case 2:
-                System.out.println("➡️  Redirecting to Account...");
-
-                System.out.println();
-                    
-                System.out.println("==================================");
-                System.out.println("   Profile Information   ");
-                System.out.println("==================================");
-                super.getProfileInfo();
+            case 2: 
+                agencySystem.getEmployees();
+                goBack(scanner);
+                break;
+            case 3:
+                agencySystem.getProjects(scanner);
+                goBack(scanner);
+                break;
+            case 4:
+                getProfileInfo();
                 goBack(scanner);
                 break;        
             default:

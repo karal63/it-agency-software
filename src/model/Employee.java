@@ -30,13 +30,6 @@ public class Employee extends User {
 
         switch (choice) {
             case 1:
-                System.out.println("➡️  Redirecting to Projects...");
-
-                System.out.println();
-                    
-                System.out.println("==================================");
-                System.out.println("   All projects   ");
-                System.out.println("==================================");
                 agencySystem.getProjects(scanner);
                 goBack(scanner);
                 break;
@@ -75,25 +68,11 @@ public class Employee extends User {
                 goBack(scanner);
                 break;
             case 5:
-                System.out.println("➡️  Redirecting to Employees list...");
-
-                System.out.println();
-                    
-                System.out.println("==================================");
-                System.out.println("   All employees   ");
-                System.out.println("==================================");
                 agencySystem.getEmployees();
                 goBack(scanner);
                 break;
             case 6:
-                System.out.println("➡️  Redirecting to Account...");
-
-                System.out.println();
-                    
-                System.out.println("==================================");
-                System.out.println("   Profile Information   ");
-                System.out.println("==================================");
-                super.getProfileInfo();
+                getProfileInfo();
                 goBack(scanner);
                 break;
             default:
