@@ -1,15 +1,9 @@
 package model;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Employee extends User {
-    private String dbTasks = "src/data/tasks.txt";
     private AgencyManagementSystem agencySystem = new AgencyManagementSystem();
-
 
     public Employee(String username, String password) {
         super(username, password, "employee");
@@ -65,6 +59,13 @@ public class Employee extends User {
 
                 agencySystem.addTask(task);
                 goBack(scanner);
+
+                break;
+            case 3:
+        
+                System.out.print("~ Enter task name: ");
+                String taskName = scanner.nextLine();
+                agencySystem.deleteTask(taskName);
 
                 break;
             case 4:
