@@ -14,27 +14,14 @@ public class AppMenu {
         System.out.println("   Welcome to IT Agency System   ");
         System.out.println("==================================");
         System.out.println("Please select an option:");
-        System.out.println("1. Login");
-        System.out.println("2. Sign Up");
-        System.out.print("Your choice: ");
+        System.out.println("1. Login (selected)");
+        System.out.println("");
 
-        int choice = scanner.nextInt();
-        scanner.nextLine(); // consume leftover newline
+        System.out.println("Press any button to continue...");
+        String action = scanner.nextLine();
 
-        switch (choice) {
-            case 1:
-                System.out.println("➡️  Redirecting to Login...");
-                login(scanner);
-                break;
-
-            case 2:
-                System.out.println("➡️  Redirecting to Sign Up...");
-                break;
-
-            default:
-                System.out.println("❌ Invalid option. Please try again.");
-                break;
-        }
+        System.out.println("➡️  Redirecting to Login...");
+        login(scanner);
     }
     
     public void login(Scanner scanner) {
