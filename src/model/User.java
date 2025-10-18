@@ -48,6 +48,12 @@ public abstract class User {
     public void getProfileInfo() {
         System.out.println("Email: " + this.username);
         System.out.println("Role: " + role);
+    }
 
+    public void goBack(Scanner scanner) {
+        System.out.println();
+        System.out.println("Press Enter to go back to dashboard");
+        String choice = scanner.nextLine();
+        showDashboard(scanner);
     }
 }

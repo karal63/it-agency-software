@@ -40,6 +40,22 @@ public class AgencyManagementSystem {
         }
     }
 
+    public void addTask(Task task) {
+        try (FileWriter writer = new FileWriter(dbTasks, true)) {
+            String line = task.name + ";" 
+                        + task.projectName + ";"
+                        + task.description + ";" 
+                        + task.status + ";"
+                        + task.deadline + "\n"; 
+
+
+            writer.write(line);
+            System.out.println("✅ Task added.");
+        } catch (IOException e) {
+            System.err.println("❌ Error writing to file: " + e.getMessage());
+        }
+    }
+
     public void getProjects(Scanner scanner) {
         List<String> projects = new ArrayList<>();
 

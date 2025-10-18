@@ -36,6 +36,7 @@ public class Client extends User {
                 Project project = new Project(name, description);
 
                 agencySystem.addProject(project);
+                goBack(scanner);
                 break;
             case 2:
                 System.out.println("➡️  Redirecting to Account...");
@@ -46,9 +47,11 @@ public class Client extends User {
                 System.out.println("   Profile Information   ");
                 System.out.println("==================================");
                 super.getProfileInfo();
+                goBack(scanner);
                 break;        
             default:
                 System.out.println("❌ Invalid option. Please try again.");
+                goBack(scanner);
                 break;
         }
     }
