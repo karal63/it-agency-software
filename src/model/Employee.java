@@ -20,8 +20,9 @@ public class Employee extends User {
         System.out.println("1. Show projects & tasks");
         System.out.println("2. Create task");
         System.out.println("3. Close task");
-        System.out.println("4. Show employees");
-        System.out.println("5. Show personal info");
+        System.out.println("4. Close project");
+        System.out.println("5. Show employees");
+        System.out.println("6. Show personal info");
         System.out.print("Your choice: ");
 
         int choice = scanner.nextInt();
@@ -62,13 +63,18 @@ public class Employee extends User {
 
                 break;
             case 3:
-        
-                System.out.print("~ Enter task name: ");
+                System.out.print("~ Enter task's name: ");
                 String taskName = scanner.nextLine();
                 agencySystem.deleteTask(taskName);
-
+                goBack(scanner);
                 break;
             case 4:
+                System.out.print("~ Enter project's name: ");
+                String closeProjectName = scanner.nextLine();
+                agencySystem.closeProject(closeProjectName);
+                goBack(scanner);
+                break;
+            case 5:
                 System.out.println("➡️  Redirecting to Employees list...");
 
                 System.out.println();
@@ -79,7 +85,7 @@ public class Employee extends User {
                 agencySystem.getEmployees();
                 goBack(scanner);
                 break;
-            case 5:
+            case 6:
                 System.out.println("➡️  Redirecting to Account...");
 
                 System.out.println();
