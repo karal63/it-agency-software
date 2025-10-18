@@ -81,16 +81,29 @@ public class Employee extends User {
                 goBack(scanner);
                 break;
             case 7:
-                System.out.print("Email: ");
+                System.out.print("~ Email: ");
                 String newClientEmail = scanner.nextLine();
-                System.out.print("Password: ");
+                System.out.print("~ Password: ");
                 String newClientPassword = scanner.nextLine();
-                System.out.print("Contact: ");
+                System.out.print("~ Contact: ");
                 String newClientContact = scanner.nextLine();
 
                 Client client = new Client(newClientEmail, newClientPassword);
 
                 agencySystem.addClient(client, newClientContact);
+                goBack(scanner);
+                break;
+            case 8:
+                System.out.print("~ Email: ");
+                String newEmployeeEmail = scanner.nextLine();
+                System.out.print("~ Password: ");
+                String newEmployeePassword = scanner.nextLine();
+                System.out.print("~ Contact: ");
+                String newEmployeeContact = scanner.nextLine();
+
+                Employee employee = new Employee(newEmployeeEmail, newEmployeePassword);
+
+                agencySystem.addEmployee(employee, newEmployeeContact);
                 goBack(scanner);
                 break;
             default:

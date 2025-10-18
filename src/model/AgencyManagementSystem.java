@@ -27,8 +27,14 @@ public class AgencyManagementSystem {
         }
     }
 
-    public void addEmployee(Employee employee) {
-        System.out.println("Adding employee: ");
+    public void addEmployee(Employee employee, String contact) {
+        try (FileWriter writer = new FileWriter(dbEmployees, true)) {
+            String line = employee.getEmail() + ";" + employee.getPassword() + ";" + contact + "\n";
+            writer.write(line);
+            System.out.println("✅ Client added.");
+        } catch (IOException e) {
+            System.err.println("❌ Error writing to file: " + e.getMessage());
+        }
     }
 
     public void addProject(Project project) {
